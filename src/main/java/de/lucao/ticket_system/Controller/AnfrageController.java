@@ -1,22 +1,23 @@
 package de.lucao.ticket_system.Controller;
 
-import de.lucao.ticket_system.Services.AnfragenService;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import de.lucao.ticket_system.Objects.Request;
+import de.lucao.ticket_system.Services.RequestService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 //@Controller <-- is for html answers
 public class AnfrageController {
 
-    AnfragenService anfragenService;
-    public AnfrageController(AnfragenService anfragenService) {
-        this.anfragenService = anfragenService;
+    RequestService requestService;
+
+    public AnfrageController(RequestService requestService) {
+        this.requestService = requestService;
     }
 
-    @GetMapping("/testAnfrage")
-    public String anfrage() {
-        this.anfragenService.test();
-        return "OK";
+    @PostMapping("/createAnfrage")
+    public Request anfrage(@RequestBody Request request) {
+        return requestService.createAnfrage(request);
     }
 }
