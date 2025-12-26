@@ -1,6 +1,6 @@
 package de.lucao.ticket_system.Enum;
 
-public enum AnfrageType {
+public enum RequestType {
 
     TICKET,
     REQUEST,

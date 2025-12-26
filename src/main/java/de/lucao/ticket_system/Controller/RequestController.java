@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 //@Controller <-- is for html answers
-public class AnfrageController {
+public class RequestController {
 
     RequestService requestService;
 
-    public AnfrageController(RequestService requestService) {
+    public RequestController(RequestService requestService) {
         this.requestService = requestService;
     }
 
-    @PostMapping("/createAnfrage")
-    public Request anfrage(@RequestBody Request request) {
-        return requestService.createAnfrage(request);
+    @PostMapping("/createRequest")
+    public Request request(@RequestBody Request request) {
+        return requestService.createRequest(request);
     }
 }

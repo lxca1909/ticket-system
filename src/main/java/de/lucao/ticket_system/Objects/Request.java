@@ -1,45 +1,45 @@
 package de.lucao.ticket_system.Objects;
 
-import de.lucao.ticket_system.Enum.AnfrageType;
+import de.lucao.ticket_system.Enum.RequestType;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "anfrage")
+@Table(name = "t_ticket")
 public class Request {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(unique = true, nullable = false, name = "requestId")
-    private Long anfrageId;
+    private Long requestId;
 
     @Column(name = "content")
     private String content;
 
-    @Column(name = "request_mail")
+    @Column(name = "requestMail")
     private String requestMail;
 
-    @Column(name = "anfrageType")
-    private AnfrageType anfrageType;
+    @Column(name = "requestType")
+    private RequestType requestType;
 
-    @Column(name = "beantworterID")
+    @Column(name = "responderId")
     private Long responderId; //TODO: tabelle und eigenes Beantworter / Resolver Object dafür erstellen -- dementsprechend vielleicht auch eine User Object
 
-    public Request(String content, String requestMail, AnfrageType anfrageType, Long responderId) {
+    public Request(String content, String requestMail, RequestType requestType, Long responderId) {
         this.content = content;
         this.requestMail = requestMail;
         this.responderId = responderId;
-        this.anfrageType = anfrageType;
+        this.requestType = requestType;
     }
 
     public Request() {
         super();
     }
 
-    public Long getAnfrageId() {
-        return anfrageId;
+    public Long getRequestId() {
+        return requestId;
     }
-    public void setAnfrageId(Long anfrageId) {
-        this.anfrageId = anfrageId;
+    public void setRequestId(Long requestId) {
+        this.requestId = requestId;
     }
 
     public String getInhalt() {
@@ -65,9 +65,9 @@ public class Request {
 
     @Override
     public String toString() {
-        return "Anfragen ID: " + this.anfrageId +
+        return "Anfragen ID: " + this.requestId +
                 " Inhalt: " + this.content +
-                " AnfrageType: " + this.anfrageType;
+                " AnfrageType: " + this.requestType;
     }
 
 }

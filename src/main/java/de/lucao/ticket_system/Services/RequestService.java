@@ -19,7 +19,7 @@ public class RequestService {
 
     Logger logger = LoggerFactory.getLogger(RequestService.class);
 
-    public Request createAnfrage(Request request){
+    public Request createRequest(Request request){
 
         logger.info("Anfrage: {}", request);
         return requestRepository.save(request);

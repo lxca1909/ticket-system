@@ -11,9 +11,9 @@ public class User {
     @Column(unique = true, nullable = false, name = "userId")
     private Long userId;
 
-    @Column(name = "vorname")
-    private String vorname;
+    @Column(name = "firstname")
+    private String firstName;
 
-    @Column(name = "nachname")
-    private String nachname;
+    @Column(name = "lastname")
+    private String lastname;
 }

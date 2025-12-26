@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface RequestRepository extends CrudRepository<Request, Long> {
 
-    List<Request> findByAnfrageId(int anfrageId);
+    //List<Request> findByRequestId(int anfrageId);
 
     Request findById(long id);
 }
